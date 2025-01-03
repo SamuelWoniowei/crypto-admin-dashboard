@@ -29,7 +29,9 @@ const toggleSidebar = inject<() => void>("toggleSidebar");
     <div class=" flex flex-col items-center h-screen overflow-y-scroll no-scrollbar">
 
         <div class="mt-5 mb-10" :class="sidebarOpen ? 'mt-20 lg:mt-5' : ''">
-            <img src="/images/logo.png" alt="Logo" class="w-32 h-12" />
+            <router-link to="/">
+                <img src="/images/logo.png" alt="Logo" class="w-32 h-12" />
+            </router-link>
         </div>
         <div class="mt-5">
             <div v-if="user">

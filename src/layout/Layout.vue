@@ -26,9 +26,11 @@ watch(sidebarOpen, (open) => {
     </div>
 
     <div class="w-full lg:w-10/12 bg-gray-100">
-      <div
-        class="flex  lg:hidden bg-white mb-5 px-3 py-2 items-center justify-between">
-        <img src="/images/logo.png" alt="Logo" class="w-28 h-10" />
+      <div class="flex  lg:hidden bg-white mb-5 px-3 py-2 items-center justify-between">
+        <div v-if="sidebarOpen" class="font-semibold">Menu</div>
+        <router-link to="/">
+          <img v-if="!sidebarOpen" src="/images/logo.png" alt="Logo" class="w-28 h-10" />
+        </router-link>
         <Icon @click="toggleSidebar" icon="solar:hamburger-menu-broken" class="w-6 h-6 text-gray-500 cursor-pointer" />
       </div>
 
