@@ -21,7 +21,7 @@ watch(sidebarOpen, (open) => {
 
 <template>
   <div class="flex relative">
-    <div class="hidden lg:block w-2/12 border h-screen sticky top-0">
+    <div class="hidden lg:block w-2/12 border h-screen sticky top-0 overflow-y-scroll">
       <Sidebar />
     </div>
 
