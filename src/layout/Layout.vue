@@ -10,11 +10,11 @@ const toggleSidebar = inject<() => void>("toggleSidebar");
 //@ts-ignore
 watch(sidebarOpen, (open) => {
   if (open) {
-    document.body.style.overflow = "hidden"; 
-    document.body.classList.add("blurred-background"); 
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("blurred-background");
   } else {
-    document.body.style.overflow = ""; 
-    document.body.classList.remove("blurred-background"); 
+    document.body.style.overflow = "";
+    document.body.classList.remove("blurred-background");
   }
 });
 </script>
@@ -26,7 +26,8 @@ watch(sidebarOpen, (open) => {
     </div>
 
     <div class="w-full lg:w-10/12 bg-gray-100">
-      <div v-if="!sidebarOpen" class="flex sticky top-0 z-30 lg:hidden bg-white mb-5 px-3 py-2 items-center justify-between">
+      <div
+        class="flex  lg:hidden bg-white mb-5 px-3 py-2 items-center justify-between">
         <img src="/images/logo.png" alt="Logo" class="w-28 h-10" />
         <Icon @click="toggleSidebar" icon="solar:hamburger-menu-broken" class="w-6 h-6 text-gray-500 cursor-pointer" />
       </div>
@@ -47,8 +48,12 @@ watch(sidebarOpen, (open) => {
     </div>
   </div>
 
-  <section v-if="sidebarOpen" class="absolute w-2/3 md:w-1/2 lg:hidden bg-white right-0 top-0 h-screen">
-    <Sidebar />
-
+  <section v-if="sidebarOpen"
+    class="absolute w-2/3 md:w-1/2 lg:hidden bg-white right-0 top-0 h-screen z-50 transform transition-all duration-300 ease-in-out">
+    <div class="relative">
+      <Sidebar />
+      <Icon v-if="sidebarOpen" icon="material-symbols-light:cancel-outline-rounded"
+        class="absolute top-5 right-5 text-3xl text-red-800 cursor-pointer lg:hidden" @click="toggleSidebar" />
+    </div>
   </section>
 </template>

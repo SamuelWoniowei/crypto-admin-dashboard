@@ -26,9 +26,8 @@ const toggleSidebar = inject<() => void>("toggleSidebar");
 
 </script>
 <template>
-    <div class="relative flex flex-col items-center h-screen overflow-y-scroll no-scrollbar">
-        <Icon v-if="sidebarOpen" icon="material-symbols-light:cancel-outline-rounded" class="absolute top-5 right-5 text-3xl text-red-800 cursor-pointer lg:hidden"
-            @click="toggleSidebar" />
+    <div class=" flex flex-col items-center h-screen overflow-y-scroll no-scrollbar">
+
         <div class="mt-5 mb-10" :class="sidebarOpen ? 'mt-20 lg:mt-5' : ''">
             <img src="/images/logo.png" alt="Logo" class="w-32 h-12" />
         </div>
@@ -49,7 +48,7 @@ const toggleSidebar = inject<() => void>("toggleSidebar");
             <li v-for="(link, index) in sidebarLinks" :key="index" class="flex gap-2 items-center">
                 <router-link :to="link.href"
                     :style="currentPage === link.href ? { backgroundColor: 'blue', color: 'white' } : {}"
-                    @click="sidebarOpen && toggleSidebar?.()" 
+                    @click="sidebarOpen && toggleSidebar?.()"
                     class="flex items-center gap-2 w-full hover:bg-blue-400 hover:text-white py-2 px-6 rounded-3xl">
                     <Icon :icon="link.icon" class="w-8 h-8" />
                     {{ link.label }}
