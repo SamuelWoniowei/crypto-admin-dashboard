@@ -49,9 +49,7 @@ const filteredTransactions = computed(() => {
   return filtered.slice(start, start + itemsPerPage);
 });
 
-const totalPages = computed(() => {
-  return Math.ceil(filteredTransactions.value.length / itemsPerPage);
-});
+
 
 const sortTable = (column: string) => {
   if (sortBy.value === column) {
@@ -62,13 +60,7 @@ const sortTable = (column: string) => {
   }
 };
 
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) currentPage.value++;
-};
 
-const prevPage = () => {
-  if (currentPage.value > 1) currentPage.value--;
-};
 </script>
 <template>
   <Layout title="Transactions List">
